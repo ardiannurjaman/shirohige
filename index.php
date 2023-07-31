@@ -32,6 +32,7 @@
                         <li class="nav-item"><a class="nav-link" href="#about">Sejarah</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Murid</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="panel/Login.php">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -247,7 +248,7 @@ Rohis ( IRTA )</p></div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
-                        <div class="timeline-image text-dark">
+                        <div class="timeline-image text-darkb f">
                             <h4>
                                 JAYA
                                 <br />
