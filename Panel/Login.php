@@ -1,3 +1,33 @@
+<?php
+// login_process.php
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the form data
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    // In a real application, you would perform authentication here, e.g., query a database
+    // For demonstration purposes, we'll use a simple example.
+    $validUsername = "admin";
+    $validPassword = "admin"; // Change this to the correct password
+
+    // Check if the provided credentials are valid
+    if ($username === $validUsername && $password === $validPassword) {
+        // Successful login, start a PHP session
+        session_start();
+
+        // Store the username in the session variable
+        $_SESSION["username"] = $username;
+
+        // Redirect to a dashboard or welcome page
+      
+        exit;
+    } 
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,7 +102,12 @@
 </head>
 <body>
 	<h1>Login Page</h1>
-	<form name="loginForm"  action="home.html" onsubmit="return validateForm()" method="post">
+	<?php
+    if (!empty($errorMsg)) {
+        echo '<div class="error">' . $errorMsg . '</div>';
+    }
+    ?>
+	<form name="loginForm"  method="post" action="aksi.php">
 		<label for="username">Username:</label>
 		<input type="text" id="username" name="username"><br><br>
 		<label for="password">password:</label>
@@ -82,27 +117,9 @@
 		<div id = "success"class="success"></div>
 		<div  id= "eror" class="eror"></div>
 	</form>
+    <center>
+    <h4>Copyright &copy; <font color="green" alt="ardian"> ardian </font> </h4>
+    </center>
 
-    <script type="text/javascript">
-		function validateForm() {
-			var username = document.forms["loginForm"]["username"].value;
-			var password = document.forms["loginForm"]["password"].value;
-			var success = document.getElementById("success");
-			var eror = document.getElementById("eror");
-
-			if (username == "" || password == "") {
-				eror.innerHTML = "Username atau Password harus di isi!!!"
-				return false;
-			}
-			else if (username == "admin" && password == "123") {
-				success.innerHTML ="Login Berhasil!!" //jika login berhasil
-				return true;
-			}
-			else {
-				eror.innerHTML = "Username atau Password salah!!!" //jika login gagal
-				return false;
-			}
-		}
-	</script>
 </body>
 </html>
