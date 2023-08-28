@@ -2,5 +2,5 @@
 session_start();
 session_destroy();
 
-header('Location: loginnn.php');
+header('Location: ../../loginnn.php');
 ?>

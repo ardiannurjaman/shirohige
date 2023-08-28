@@ -72,6 +72,10 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-computer"></i></div>
                                 Registasi user
                             </a>
+                            <a class="nav-link" href="logout.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+                                logout
+                            </a>
                             <a class="nav-link" href="tables.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables

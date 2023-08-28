@@ -32,7 +32,7 @@
                         <li class="nav-item"><a class="nav-link" href="#about">Sejarah</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Murid</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="panel/Login.php">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="panel/loginnn.php">Login</a></li>
                     </ul>
                 </div>
             </div>
