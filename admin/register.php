@@ -16,7 +16,7 @@ if (isset($_POST['regis'])){
         <script>
             alert('Username sudah terdaftar, coba pake yang lain!!');
             document.location.href='register.php';
-        ";
+         </script>";
         return false;
     }
 

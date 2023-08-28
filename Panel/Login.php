@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     } 
 }
+
 ?>
 
 
@@ -107,12 +108,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<div class="error">' . $errorMsg . '</div>';
     }
     ?>
-	<form name="loginForm"  method="post" action="aksi.php">
+	<form name="loginForm"  method="post" action="">
 		<label for="username">Username:</label>
 		<input type="text" id="username" name="username"><br><br>
 		<label for="password">password:</label>
 		<input type="password" id="password" name="password"><br><br>
-		<input type="submit" value="Login">
+		<input type="submit" name=""40 value="Login">
 
 		<div id = "success"class="success"></div>
 		<div  id= "eror" class="eror"></div>
