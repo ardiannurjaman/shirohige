@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include '../admin/koneksi/koneksi.php';
 
 // Check if user is already logged in using session
