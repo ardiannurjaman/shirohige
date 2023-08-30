@@ -62,7 +62,18 @@ if (!isset($_SESSION['login'])){
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-house-chimney"></i></div>
                                 Home
                             </a>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                           
+                            <a class="nav-link" href="register.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-computer"></i></div>
+                                Pendaftaran
+                            </a>
+                            <a class="nav-link" href="tables.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Data pendaftaran
+                            </a>
+
+                            <?php if ($_SESSION['hak_akses'] == 'admin') : ?>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Master
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -75,26 +86,16 @@ if (!isset($_SESSION['login'])){
                                     <a class="nav-link" href="jenjang.php">Jenjang</a>
                                 </nav>
                             </div>
-
-
-                            <?php if ($_SESSION['hak_akses'] == 'admin') : ?>
                             <div class="sb-sidenav-menu-heading">Menu admin</div>
                             <a class="nav-link" href="register.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-computer"></i></div>
                                 Registasi user
                             </a>
-                            <a class="nav-link" href="register.php">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-computer"></i></div>
-                                Pendaftaran
-                            </a>
-                            <a class="nav-link" href="charts.php">
+                            <!-- <a class="nav-link" href="charts.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Data pendaftaran
                             </a>
-                            <a class="nav-link" href="tables.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
+                           -->
                             <?php endif; ?>
                             <a onclick="return confirm('yakin ingin Log out?nanti masukin password lagi lohh');" class="nav-link" href="logout.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
