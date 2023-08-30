@@ -1,3 +1,17 @@
+<?php
+session_start();
+if (!isset($_SESSION['login'])){
+
+?>
+<script>
+    alert("SILAHKAN LOOGIN DULU YAA!!")
+    window.open('loginnn.php','_self');
+</script>
+<?php
+} else {
+    $status = $_SESSION['hak_akses'];
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +47,7 @@
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                        <li><a onclick="return confirm('yakin ingin Log out?nanti masukin password lagi lohh');" class="dropdown-item" href="logout.php">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -61,6 +75,14 @@
                                     <a class="nav-link" href="jenjang.php">Jenjang</a>
                                 </nav>
                             </div>
+
+
+                            <?php if ($_SESSION['hak_akses'] == 'admin') : ?>
+                            <div class="sb-sidenav-menu-heading">Menu admin</div>
+                            <a class="nav-link" href="register.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-computer"></i></div>
+                                Registasi user
+                            </a>
                             <a class="nav-link" href="register.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-computer"></i></div>
                                 Pendaftaran
@@ -69,18 +91,14 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Data pendaftaran
                             </a>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="register.php">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-computer"></i></div>
-                                Registasi user
-                            </a>
-                            <a class="nav-link" href="../index.php">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
-                                logout
-                            </a>
                             <a class="nav-link" href="tables.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
+                            </a>
+                            <?php endif; ?>
+                            <a onclick="return confirm('yakin ingin Log out?nanti masukin password lagi lohh');" class="nav-link" href="logout.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+                                logout
                             </a>
                         </div>
                     </div>

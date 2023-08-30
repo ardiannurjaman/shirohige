@@ -1,10 +1,10 @@
 <?php
-// session_start();
-include '../admin/koneksi/koneksi.php';
+session_start();
+include 'koneksi/koneksi.php';
 
 // Check if user is already logged in using session
 if (isset($_SESSION["login"])) {
-  header("Location: ../admin/index.php");
+  header("Location:index.php");
   exit;
 }
 
@@ -22,7 +22,7 @@ if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
   // Check cookie with hashed username
   if ($key === hash('sha256', $row['username'])) {
     $_SESSION['login'] = true;
-    header("Location: ../admin/index.php");
+    header("Location:index.php");
     exit;
   }
 }
@@ -55,7 +55,7 @@ if (isset($_POST['login'])) {
         setcookie('key', $secure_key, time() + 60 * 60 * 24 * 30, "/");
       }
 
-      header("Location: ../admin/index.php");
+      header("Location:index.php");
       exit;
     } else {
       echo "

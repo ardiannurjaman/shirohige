@@ -1,6 +1,7 @@
 <?php include 'header.php';
 
 include 'koneksi/koneksi.php';
+
 if (isset($_POST['regis'])){
     $username = strtolower(stripslashes($_POST['username']));
     $password = mysqli_real_escape_string($conn, $_POST['password']);
@@ -93,8 +94,8 @@ if (isset($_POST['regis'])){
                                             <div class="form-group">
                                                 <select class="form-select" name="akses" aria-label="Default select example">
                                                 <option selected>Hak Akses</option>
-                                                <option value="1">Admin</option>
-                                                <option value="2">User</option>
+                                                <option value="admin">Admin</option>
+                                                <option value="user">User</option>
                                                 </select>
                                             </div><br>
                                             <div class="row mb-3">
