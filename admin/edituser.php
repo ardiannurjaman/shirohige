@@ -119,7 +119,7 @@ $edit = mysqli_fetch_assoc($data);
                                         <select name="hak_akses" class="form-select form-select mb-3" aria-label=".form-select-lg example">
                                             <option selected hidden disabled>-- Pilih Hak Akses --</option>
                                             <option value="admin" <?= ($edit['hak_akses'] == 'admin') ? 'selected' : '' ?>>admin</option>
-                                            <option value="operator" <?= ($edit['hak_akses'] == 'operator') ? 'selected' : '' ?>>user</option>
+                                            <option value="user" <?= ($edit['hak_akses'] == 'user') ? 'selected' : '' ?>>user</option>
                                         </select>
 
                                         </div>
