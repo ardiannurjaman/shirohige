@@ -80,8 +80,8 @@ if (!isset($_SESSION['login'])){
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.php">Agama</a>
-                                    <a class="nav-link" href="layout-sidenav-light.php">Kewarganegaraan</a>
+                                    <a class="nav-link" href="agama.php">Agama</a>
+                                    <a class="nav-link" href="kewarganegaraan.php">Kewarganegaraan</a>
                                     <a class="nav-link" href="Jurusan.php">Jurusan</a>
                                     <a class="nav-link" href="jenjang.php">Jenjang</a>
                                 </nav>
@@ -105,7 +105,7 @@ if (!isset($_SESSION['login'])){
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        Ardian website
                     </div>
                 </nav>
             </div>

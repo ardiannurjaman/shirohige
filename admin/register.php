@@ -68,7 +68,7 @@ if (isset($_POST['regis'])){
                                             <div class="row mb-3">
                                                 <div>
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputName" name="nama" type="text" placeholder="Enter your first name" />
+                                                        <input class="form-control" id="inputName" name ="nama" type="text" placeholder="Enter your first name" />
                                                         <label for="inputName">Name user</label>
                                                     </div>
                                                 </div>
