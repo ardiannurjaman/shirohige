@@ -69,7 +69,7 @@ if (!isset($_SESSION['login'])){
                             </a>
                             <a class="nav-link" href="tables.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Data pendaftaran
+                                Data user
                             </a>
 
                             <?php if ($_SESSION['hak_akses'] == 'admin') : ?>
