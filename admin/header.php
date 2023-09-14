@@ -4,7 +4,7 @@ if (!isset($_SESSION['login'])){
 
 ?>
 <script>
-    alert("SILAHKAN LOOGIN DULU YAA!!")
+    alert("SILAHKAN LOOGIN DULU YAA!!");
     window.open('loginnn.php','_self');
 </script>
 <?php
@@ -63,7 +63,7 @@ if (!isset($_SESSION['login'])){
                                 Home
                             </a>
                            
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="pendaftaran.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-computer"></i></div>
                                 Pendaftaran
                             </a>
