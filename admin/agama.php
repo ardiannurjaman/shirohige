@@ -30,7 +30,8 @@ include 'header.php';
                                     <th scope="col">Tanggal update</th>
                                     <th scope="col">User update</th>
                                     <th scope="col">Akses</th>
-                                    <th scope="col">Aksi</th>
+                                    <th scope="col">Update</th>
+                                    <th scope="col">Hapus</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,9 +55,9 @@ include 'header.php';
                                         <td><?= $data['user_update']; ?></td>
                                         <td><?= $data['hak_akses']; ?> (<?= $data['nama']; ?>)</td>
                                         <td>
-                                        <a class="btn btn-warning btn-sm" type="button" href="edituser.php?id_user=<?= $data['id_user']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a class="btn btn-danger btn-sm" type="button" onclick="return confirm('Data akan di Hapus?')" href="hapus_agama.php?id_agama=<?= $data['id_agama']; ?>"><i class="fa-solid fa-trash"></i></a>
+                                        <a class="btn btn-warning btn-sm" type="button" href="edit_agama.php?id_agama=<?= $data['id_agama']; ?>"><i class="fa-solid fa-pen-to-square"></i></a><br>
                                         </td>
+                                        <td><a class="btn btn-danger btn-sm" type="button" onclick="return confirm('Data akan di Hapus?')" href="hapus_agama.php?id_agama=<?= $data['id_agama']; ?>"><i class="fa-solid fa-trash"></i></a></td>
                                     </tr>
                                 <?php
                                     }

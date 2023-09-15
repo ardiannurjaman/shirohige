@@ -1,55 +1,47 @@
-<?php
-include 'header.php';
-include 'koneksi/koneksi.php';
-if ($_SESSION['hak_akses'] != 'admin') {
-    echo "
-    <script>
-        alert('Tidak Memiliki Akses, DILARANG MASUK!');
-        document.location.href='index.php';
-    </script>
-    ";
-}
+<?php 
+    include 'header.php';
+    include 'koneksi/koneksi.php';
 
-if (isset($_POST['regis'])) {
-    $id_agama = htmlspecialchars($_POST['id_agama']);
-    $nama_agama = htmlspecialchars($_POST['nama_agama']);
-    $tgl_input = htmlspecialchars($_POST['tgl_input']);
-    $user_input = htmlspecialchars($_POST['user_input']);
-    $id_user = htmlspecialchars($_POST['id_user']);
-
-    //cek id sudah terdaftar belum
-    $result = mysqli_query($conn, "SELECT id_agama FROM agama WHERE id_agama = '$id_agama'");
-    if (mysqli_fetch_assoc($result)) {
-        echo "
-        <script>
-            alert('ID sudah terdaftar, silahkan ganit!');
-            document.location.href='Form_tambah_agama.php';
-        </script>
-        ";
-        return false;
+    if (isset($_POST['regis'])) {
+        $id_negara = htmlspecialchars($_POST['id_negara']);
+        $nama_negara = htmlspecialchars($_POST['nama_negara']);
+        $tgl_input = htmlspecialchars($_POST['tgl_input']);
+        $user_input = htmlspecialchars($_POST['user_input']);
+        $id_user = htmlspecialchars($_POST['id_user']);
+    
+        //cek id sudah terdaftar belum
+        $result = mysqli_query($conn, "SELECT id_negara FROM Kewarganegaraan WHERE id_negara = '$id_negara'");
+        if (mysqli_fetch_assoc($result)) {
+            echo "
+            <script>
+                alert('ID sudah terdaftar, silahkan ganti!');
+                document.location.href='Kewarganegaraan.php';
+            </script>
+            ";
+            return false;
+        }
+    
+        mysqli_query($conn, "INSERT INTO Kewarganegaraan VALUES('$id_negara','$nama_negara','$tgl_input','$user_input','','','$id_user')");
+    
+        // var_dump($cek);
+        // exit();
+    
+        if (mysqli_affected_rows($conn) > 0) {
+            echo "
+            <script>
+                alert('Data Negara Berhasil dibuat');
+                document.location.href='Kewarganegaraan.php';
+            </script>
+            ";
+        } else {
+            echo "
+            <script>
+                alert('Data Negara Gagal dibuat');
+                document.location.href='form_negara.php';
+            </script>
+            ";
+        }
     }
-
-    mysqli_query($conn, "INSERT INTO agama VALUES('$id_agama','$nama_agama','$tgl_input','$user_input','','','$id_user')");
-
-    // var_dump($cek);
-    // exit();
-
-    if (mysqli_affected_rows($conn) > 0) {
-        echo "
-        <script>
-            alert('Data Agama Berhasil dibuat');
-            document.location.href='agama.php';
-        </script>
-        ";
-    } else {
-        echo "
-        <script>
-            alert('Data Agama Gagal dibuat');
-            document.location.href='Form_tambah_agama.php';
-        </script>
-        ";
-    }
-}
 ?>
         <!-- <div id="layoutAuthentication"> -->
             <!-- <div id="layoutAuthentication_content"> -->
@@ -61,18 +53,18 @@ if (isset($_POST['regis'])) {
                         <div class="row justify-content-center">
                             <div class="col-lg-10">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Agama</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Kewarganegaraan</h3></div>
                                     <div class="card-body">
                                         <form class ="" method = "POST">
                                              <div class="form-floating mb-3">
-                                                <input class="form-control" id="id_agama" name="id_agama" type="text" placeholder="ID agama" />
-                                                <label for="id_agama">ID agama</label>
+                                                <input class="form-control" id="id_negara" name="id_negara" type="text" placeholder="ID agama" />
+                                                <label for="id_negara">ID negara</label>
                                             </div>
                                             <div class="row mb-3">
                                                 <div>
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="nama_agama" name ="nama_agama" type="text" placeholder="Nama agama" />
-                                                        <label for="nama_agama">Nama Agama</label>
+                                                        <input class="form-control" id="nama_negara" name ="nama_negara" type="text" placeholder="Nama agama" />
+                                                        <label for="nama_negara">Nama negara</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -103,7 +95,7 @@ if (isset($_POST['regis'])) {
                                                 <div class="col-6">
                                                     <button type="submit" name="regis" class="btn btn-success btn-block w-100">Register</button>
                                                 </div>
-                                                 <div class="col-6">
+                                                <div class="col-6">
                                                     <button type="reset" class="btn btn-danger btn-block w-100">Reset</button>
                                                 </div>
                                             </div>

@@ -10,18 +10,18 @@ if ($_SESSION['hak_akses'] != 'admin') {
     ";
 }
 if (isset($_POST['simpan'])) {
-    $id_agama = htmlspecialchars($_POST['id_agama']);
-    $nama_agama = htmlspecialchars($_POST['nama_agama']);
+    $id_negara = htmlspecialchars($_POST['id_negara']);
+    $nama_negara = htmlspecialchars($_POST['nama_negara']);
     $tgl_update = date('Y-m-d');
     $user_update = htmlspecialchars($_POST['user_update']);
     $id_user = htmlspecialchars($_POST['id_user']);
-    $query = "UPDATE agama SET
-            id_agama='$id_agama',
-            nama_agama='$nama_agama',
+    $query = "UPDATE kewarganegaraan SET
+            id_negara='$id_negara',
+            nama_negara='$nama_negara',
             tgl_update='$tgl_update',
             user_update='$user_update',
             id_user='$id_user'
-            WHERE id_agama='$id_agama'
+            WHERE id_negara='$id_negara'
             ";
     // var_dump($query);
     // exit();
@@ -29,24 +29,24 @@ if (isset($_POST['simpan'])) {
     if (mysqli_affected_rows($conn) > 0) {
         echo "
             <script>
-                alert('Data Agama Berhasil DiUpdate');
-                document.location.href='agama.php';
+                alert('Data Negara Berhasil DiUpdate');
+                document.location.href='kewarganegaraan.php';
             </script>
             ";
     } else {
         echo "
             <script>
-                alert('Data Agama Gagal Update');
-                document.location.href='agama.php';
+                alert('Data Negara Gagal Update');
+                document.location.href='kewarganegaraan.php';
             </script>
             ";
     }
 }
 
 $data = mysqli_query($conn, "SELECT *
-FROM agama
+FROM kewarganegaraan
 LEFT JOIN user
-ON agama.id_user = user.id_user WHERE id_agama='" . $_GET['id_agama'] . "'");
+ON kewarganegaraan.id_user = user.id_user WHERE id_negara='" . $_GET['id_negara'] . "'");
 $edit = mysqli_fetch_assoc($data);
 ?>
 <!DOCTYPE html>
@@ -57,7 +57,7 @@ $edit = mysqli_fetch_assoc($data);
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Edit Agama - WebKolah</title>
+        <title>Edit negara - Webskolah</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -69,28 +69,28 @@ $edit = mysqli_fetch_assoc($data);
                 <main>
                     <!-- Body Content -->
                     <div class="container mt-5">
-                        <h3 class="text-secondary display-6">Form Edit Agama</h3>
+                        <h3 class="text-secondary display-6">Form Edit Negara</h3>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Form Edit Agama</li>
+                                <li class="breadcrumb-item active" aria-current="page">Form Edit Negara</li>
                             </ol>
                         </nav>
                         <div class="card">
                             <div class="card-body">
-                                <h4>Edit Agama</h4>
+                                <h4>Edit Negara</h4>
                                 <hr>
                                 
                                 <form action="" method="POST">
-                                    <input type="hidden" name="id_agama" id="id_agama" value="<?= $edit['id_agama']; ?>">
+                                    <input type="hidden" name="id_Negara" id="id_negara" value="<?= $edit['id_negara']; ?>">
                                     <div class="row">
                                         <div class="form-floating mb-3">
-                                            <input type="text" name="id_agama" class="form-control" id="id_agama" value="<?= $edit['id_agama'] ?>">
-                                            <label class="mx-2" for="username">ID Agama</label>
+                                            <input type="text" name="id_negara" class="form-control" id="id_negara" value="<?= $edit['id_negara'] ?>">
+                                            <label class="mx-2" for="username">ID Negara</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" name="nama_agama" class="form-control" id="nama_agama" value="<?= $edit['nama_agama'] ?>">
-                                            <label class="mx-2" for="nm">Nama Agama</label>
+                                            <input type="text" name="nama_negara" class="form-control" id="nama_negara" value="<?= $edit['nama_negara'] ?>">
+                                            <label class="mx-2" for="nm">Nama Negara</label>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <input type="text" name="user_update" class="form-control" id="floatingInput" value="<?= $edit['user_update'] ?>">
@@ -110,6 +110,7 @@ $edit = mysqli_fetch_assoc($data);
                                 </select>
 
                                         </div>
+                                        <br>
                                         <div class="col-6">
                                             <input class="btn btn-success btn-block w-100" type="submit" name="simpan" value="Simpan">
                                         </div>
