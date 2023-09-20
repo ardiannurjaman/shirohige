@@ -1,5 +1,14 @@
 <?php
 include 'koneksi/koneksi.php';
+if ($_SESSION['hak_akses'] != 'admin') {
+  echo "
+  <script>
+      alert('Tidak Memiliki Akses, DILARANG MASUK!');
+      document.location.href='index.php';
+  </script>
+  ";
+}
+
 $id = $_GET["id_user"];
 //mengambil id yang ingin dihapus
 
@@ -14,3 +23,4 @@ $id = $_GET["id_user"];
     } else {
       echo "<script>alert('Data berhasil dihapus.');window.location='tables.php';</script>";
     }
+    ?>
