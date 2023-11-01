@@ -63,7 +63,7 @@ if (!isset($_SESSION['login'])){
                                 Home
                             </a>
                            
-                            <a class="nav-link" href="pendaftaran.php">
+                            <a class="nav-link" href="data_pendaftaran.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-computer"></i></div>
                                 Pendaftaran
                             </a>

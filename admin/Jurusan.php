@@ -37,6 +37,7 @@ if ($_SESSION['hak_akses'] != 'admin') {
                                     <th scope="col">User input</th>
                                     <th scope="col">Tanggal update</th>
                                     <th scope="col">User update</th>
+                                    <th scope="col">Akses</th>
                                     <th scope="col">Update</th>
                                     <th scope="col">Hapus</th>
                                 </tr>
@@ -46,18 +47,22 @@ if ($_SESSION['hak_akses'] != 'admin') {
                                 <?php
                                     include 'koneksi/koneksi.php';
                                     $no = 1;
-                                    $query = "SELECT *
-                                    FROM jurusan ";
-                                    $sql = mysqli_query($conn, $query);
-                                    while ($data = mysqli_fetch_assoc($sql)) {
+                                        $query = "SELECT id_jurusan, CONCAT(jenjang.nama_jenjang,' ',jurusan.nama_jurusan) as kelas, jurusan.tgl_input,jurusan.user_input,jurusan.tgl_update,jurusan.user_update,CONCAT(user.hak_akses,' (',user.nama,')') as akses
+                                        FROM jurusan
+                                        LEFT JOIN jenjang
+                                        ON jurusan.id_jenjang = jenjang.id_jenjang LEFT JOIN user ON jurusan.id_user = user.id_user";
+                                        $sql = mysqli_query($conn, $query);
+                                        while ($data = mysqli_fetch_assoc($sql)) {
+                                        
                                 ?>
                                     <tr>
                                         <td><?= $no++; ?></td>
-                                        <td><?= $data['nama_jurusan']; ?></td>
+                                        <td><?= $data['kelas']; ?></td>
                                         <td><?= $data['tgl_input']; ?></td>
                                         <td><?= $data['user_input']; ?></td>
                                         <td><?= $data['tgl_update']; ?></td>
                                         <td><?= $data['user_update']; ?></td>
+                                        <td><?= $data['akses']; ?></td>
                                         <td>
                                         <a class="btn btn-warning btn-sm" type="button" href="edit_jurusan.php?id_jurusan=<?= $data['id_jurusan']; ?>"><i class="fa-solid fa-pen-to-square"></i></a><br>
                                         </td>
